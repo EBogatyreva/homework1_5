@@ -66,6 +66,8 @@ public class Main {
         int[] arr = generateRandomArray();
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         getReverseFullName(reverseFullName);
+        sum(arr);
+        maxAndMin(arr);
     }
 
     public static int[] generateRandomArray() {
@@ -74,8 +76,6 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(100_000) + 100_000;
         }
-        sum(arr);
-        maxAndMin(arr);
         return arr;
     }
 
@@ -87,8 +87,9 @@ public class Main {
 
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
-            average = (float) sum / days;
         }
+
+        average = (float) sum / days;
         System.out.println("Сумма трат за месяц составила " + sum + " рублей");
         System.out.println("Средняя сумма трат за месяц составила " + average + " рублей");
         return arr;
@@ -99,7 +100,7 @@ public class Main {
         int max = 0;
         int min = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (i == 0) min = arr[i];
+            if (i == 0) min = arr[i];//цикл 1-й раз запущен, тогда присвоение min нулевым элементом
             else if (arr[i] > max) max = arr[i];
             else if (arr[i] < min) min = arr[i];
         }
@@ -111,16 +112,8 @@ public class Main {
     //задача 4.
     public static char[] getReverseFullName(char[] reverseFullName) {
         int n = reverseFullName.length;
-        char temp;
-
-        for (int i = 0; i < n / 2; i++) {
-            temp = reverseFullName[n - i - 1];
-            reverseFullName[n - i - 1] = reverseFullName[i];
-            reverseFullName[i] = temp;
-        }
-
-        for (int i = 0; i < reverseFullName.length; i++) {
-            System.out.print(reverseFullName[i]);
+        for (int i = n; i != 0; i--) {
+            System.out.print(reverseFullName[i - 1]);
         }
         return reverseFullName;
     }
