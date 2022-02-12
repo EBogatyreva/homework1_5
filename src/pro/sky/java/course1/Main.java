@@ -1,12 +1,18 @@
 package pro.sky.java.course1;
 
+import java.security.spec.RSAOtherPrimeInfo;
+import java.util.Arrays;
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
+        //Задание 1.5.
         // задание 1.
         int[] i = new int[]{1, 2, 3};
         float[] f = {1.57f, 7.654f, 9.986f};
         boolean[] b = {true, true, false};
+
         // задание 2.
         for (int j = 0; j < i.length; j++) {
             if (j < (i.length - 1)) {
@@ -53,5 +59,62 @@ public class Main {
             }
             System.out.print(i[s] + " ");
         }
+        System.out.println(" ");
+
+        //Задание 1.6.
+        //задачи с 1-4.
+        int[] arr = generateRandomArray();
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        getReverseFullName(reverseFullName);
+        sum(arr);
+        maxAndMin(arr);
+    }
+
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+
+    //задача 1 и 3.
+    public static int[] sum(int[] arr) {
+        int sum = 0;
+        float average = 0f;
+        int days = 30;
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+
+        average = (float) sum / days;
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей");
+        System.out.println("Средняя сумма трат за месяц составила " + average + " рублей");
+        return arr;
+    }
+
+    //задача 2.
+    public static int[] maxAndMin(int[] arr) {
+        int max = 0;
+        int min = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) min = arr[i];//цикл 1-й раз запущен, тогда присвоение min нулевым элементом
+            else if (arr[i] > max) max = arr[i];
+            else if (arr[i] < min) min = arr[i];
+        }
+        System.out.println("Максимальная сумма трат за день составила " + max + " рублей");
+        System.out.println("Минимальная сумма трат за день составила " + min + " рублей.");
+        return arr;
+    }
+
+    //задача 4.
+    public static char[] getReverseFullName(char[] reverseFullName) {
+        int n = reverseFullName.length;
+        for (int i = n; i != 0; i--) {
+            System.out.print(reverseFullName[i - 1]);
+        }
+        return reverseFullName;
     }
 }
