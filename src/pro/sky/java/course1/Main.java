@@ -82,6 +82,23 @@ public class Main {
             }
             System.out.println(" ");
         }
+
+        //не через % 2 == 0
+        System.out.println("Матрица 5х5");
+        int[][] arrDouble2 = new int[5][5];
+        int q = arrDouble2.length - 1;
+
+        for (int i5 = 0; i5 < arrDouble2.length; i5++) {
+            for (int j = 0; j < arrDouble2.length; j++) {//строка
+                if (i5 == j)
+                    arrDouble2[i5][i5] = 1;
+                arrDouble2[i5][q-i5] = 1;
+                System.out.print(arrDouble2[i5][j] + " ");
+            }
+            System.out.println(" ");
+        }
+
+
         //задание 6.
         int[] arrInt = {5, 4, 3, 2, 1};
         System.out.println(Arrays.toString(arrInt));
@@ -104,7 +121,7 @@ public class Main {
         }
         System.out.println(Arrays.toString(arrInt1));
 
-        int[] arrInt2 = {(6 * -1), 2, 5, (8 * -1), 8, 10, 4, (7 * -1), 12, 1};
+        int[] arrInt2 = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
         int m = 0;
         int j;
         System.out.print(Arrays.toString(arrInt2));
@@ -117,15 +134,25 @@ public class Main {
             }
         }
 
+        //задача 8.
+        System.out.println("Задача 8 с двойным циклом");
+        for (int c = 0; c < arrInt2.length; c++) {
+            for (int a = 0; a < arrInt2.length; a++) {
+                if ((arrInt2[c] + arrInt2[a]) == -2) {
+                    System.out.println("Два числа, сумма которых равна −2: " + arrInt2[c] + " и " + arrInt2[a]);
+                }
+            }
+        }
+        System.out.println(" ");
+
         //задача 9.
         System.out.println("Все пары чисел, сумма которых равна −2: ");
         for (int i9 = 0; i9 < arrInt2.length; i9++) {
             for (j = 0; j < arrInt2.length - 1; j++) {
-                if (arrInt2[m] + arrInt2[j + 1] == -2) {
-                    System.out.println(arrInt2[m] + " " + arrInt2[j + 1]);
+                if (arrInt2[i9] + arrInt2[j + 1] == -2) {
+                    System.out.println(arrInt2[i9] + " " + arrInt2[j + 1]);
                 }
             }
-            m++;
         }
     }
 
