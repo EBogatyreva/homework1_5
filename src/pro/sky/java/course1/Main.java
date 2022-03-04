@@ -1,8 +1,7 @@
 package pro.sky.java.course1;
 
-import java.security.spec.RSAOtherPrimeInfo;
 import java.util.Arrays;
-import java.util.Random;
+
 
 public class Main {
 
@@ -68,6 +67,97 @@ public class Main {
         getReverseFullName(reverseFullName);
         sum(arr);
         maxAndMin(arr);
+
+        //Дополнительные задачи
+        //задание 5.
+        System.out.println("Матрица 3х3");
+        int[][] arrDouble = new int[3][3];
+
+        for (int i5 = 0; i5 < arrDouble.length; i5++) {
+            for (int j = 0; j < arrDouble.length; j++) {
+                if ((i5 + j) % 2 == 0) {
+                    arrDouble[i5][j] = 1;
+                }
+                System.out.print(arrDouble[i5][j]);
+            }
+            System.out.println(" ");
+        }
+
+        //не через % 2 == 0
+        System.out.println("Матрица 5х5");
+        int[][] arrDouble2 = new int[5][5];
+        int q = arrDouble2.length - 1;
+
+        for (int i5 = 0; i5 < arrDouble2.length; i5++) {
+            for (int j = 0; j < arrDouble2.length; j++) {//строка
+                if (i5 == j)
+                    arrDouble2[i5][i5] = 1;
+                arrDouble2[i5][q - i5] = 1;
+                System.out.print(arrDouble2[i5][j] + " ");
+            }
+            System.out.println(" ");
+        }
+
+
+        //задание 6.
+        int[] arrInt = {5, 4, 3, 2, 1};
+        System.out.println(Arrays.toString(arrInt));
+
+        int[] arrIntCopy = new int[arrInt.length];
+        int n = arrInt.length;
+        for (int i6 = 0; i6 < n; i6++) {
+            arrIntCopy[i6] = arrInt[n - i6 - 1];
+        }
+        System.out.println(Arrays.toString(arrIntCopy));
+
+        //задание 7.
+        int[] arrInt1 = {5, 8, 2, 3, 9};
+        System.out.println(Arrays.toString(arrInt1));
+        int n1 = arrInt1.length;
+        for (int z = 0; z < n1 / 2; z++) {
+            int c = arrInt1[n1 - z - 1];
+            arrInt1[n1 - z - 1] = arrInt1[z];
+            arrInt1[z] = c;
+        }
+        System.out.println(Arrays.toString(arrInt1));
+
+        int[] arrInt2 = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+        int m = 0;
+        int j;
+        System.out.print(Arrays.toString(arrInt2));
+        System.out.println(" ");
+
+        //задача 8.
+    /*    for (j = 0; j < arrInt2.length; j++) {
+            if (arrInt2[m] + arrInt2[j] == -2) {
+                System.out.println("Два числа, сумма которых равна −2: " + arrInt2[m] + " и " + arrInt2[j]);
+            }
+        }
+
+        //задача 8.
+        System.out.println("Задача 8 с двойным циклом");
+        for (int c = 0; c < arrInt2.length; c++) {
+            for (int a = c+1; a < arrInt2.length; a++) {
+                if ((arrInt2[c] + arrInt2[a]) == -2) {
+                    System.out.println("Два числа, сумма которых равна −2: " + arrInt2[c] + " и " + arrInt2[a]);
+                }
+            }
+
+        }
+        System.out.println(" ");*/
+
+        //задача 9.
+        System.out.println("Все пары чисел, сумма которых равна −2: ");
+        for (int i9 = 0; i9 < arrInt2.length; i9++) {
+            //System.out.println(i9 +" внешний цикл");
+
+            for (j = i9+1; j < arrInt2.length; j++) {
+              // System.out.println("i9-"+i9 + " J"+j);
+                if (arrInt2[i9] + arrInt2[j] == -2) {
+                    System.out.println(arrInt2[i9] + " " + arrInt2[j]);
+                }
+            }
+        }
     }
 
     public static int[] generateRandomArray() {
@@ -115,6 +205,7 @@ public class Main {
         for (int i = n; i != 0; i--) {
             System.out.print(reverseFullName[i - 1]);
         }
+        System.out.println(" ");
         return reverseFullName;
     }
 }
