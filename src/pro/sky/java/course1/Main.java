@@ -92,7 +92,7 @@ public class Main {
             for (int j = 0; j < arrDouble2.length; j++) {//строка
                 if (i5 == j)
                     arrDouble2[i5][i5] = 1;
-                arrDouble2[i5][q-i5] = 1;
+                arrDouble2[i5][q - i5] = 1;
                 System.out.print(arrDouble2[i5][j] + " ");
             }
             System.out.println(" ");
@@ -128,29 +128,33 @@ public class Main {
         System.out.println(" ");
 
         //задача 8.
-        for (j = 0; j < arrInt2.length - 1; j++) {
-            if (arrInt2[m] + arrInt2[j + 1] == -2) {
-                System.out.println("Два числа, сумма которых равна −2: " + arrInt2[m] + " и " + arrInt2[j + 1]);
+    /*    for (j = 0; j < arrInt2.length; j++) {
+            if (arrInt2[m] + arrInt2[j] == -2) {
+                System.out.println("Два числа, сумма которых равна −2: " + arrInt2[m] + " и " + arrInt2[j]);
             }
         }
 
         //задача 8.
         System.out.println("Задача 8 с двойным циклом");
         for (int c = 0; c < arrInt2.length; c++) {
-            for (int a = 0; a < arrInt2.length; a++) {
+            for (int a = c+1; a < arrInt2.length; a++) {
                 if ((arrInt2[c] + arrInt2[a]) == -2) {
                     System.out.println("Два числа, сумма которых равна −2: " + arrInt2[c] + " и " + arrInt2[a]);
                 }
             }
+
         }
-        System.out.println(" ");
+        System.out.println(" ");*/
 
         //задача 9.
         System.out.println("Все пары чисел, сумма которых равна −2: ");
         for (int i9 = 0; i9 < arrInt2.length; i9++) {
-            for (j = 0; j < arrInt2.length - 1; j++) {
-                if (arrInt2[i9] + arrInt2[j + 1] == -2) {
-                    System.out.println(arrInt2[i9] + " " + arrInt2[j + 1]);
+            //System.out.println(i9 +" внешний цикл");
+
+            for (j = i9+1; j < arrInt2.length; j++) {
+              // System.out.println("i9-"+i9 + " J"+j);
+                if (arrInt2[i9] + arrInt2[j] == -2) {
+                    System.out.println(arrInt2[i9] + " " + arrInt2[j]);
                 }
             }
         }
